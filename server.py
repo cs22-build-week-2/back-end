@@ -24,9 +24,9 @@ def hello():
 @app.route('/map', methods=['POST'])
 def create_map():
     # Accept an API key
-    api_key = request.get_json()
+    values = request.get_json()
     initializeURL = 'https://lambda-treasure-hunt.herokuapp.com/api/adv/init/'
-    headers = {'Authorization': 'Token ' + api_key}
+    headers = {'Authorization': 'Token ' + values['api_key']}
 
     initialize = requests.get(initializeURL, headers = headers)
     initializeData = initialize.json()
