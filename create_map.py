@@ -21,8 +21,7 @@ def create_map(headers, firstRoom, lengthOfRoom, traversed_map={}):
     s.append(mapData)
     dfs_visited = traversed_map
     previous_direction = "initialized"
-    # while len(s) > 0:
-    for i in range(5):
+    while len(s) > 0:
         if lengthOfRoom == len(dfs_visited.keys()):
             break
 

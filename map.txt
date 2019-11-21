@@ -16,3 +16,100 @@
 {"room_id": 10, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
 {"room_id": 19, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
 {"room_id": 77, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 19, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 77, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 19, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 20, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 46, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 62, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 84, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 91, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 99, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 146, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 257, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 364, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 448, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 364, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 429, "title": "A misty room", "terrain": "NORMAL", "exits": ["s"]}
+{"room_id": 364, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 257, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 320, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s"]}
+{"room_id": 348, "title": "A misty room", "terrain": "NORMAL", "exits": ["s"]}
+{"room_id": 320, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s"]}
+{"room_id": 257, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 146, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 215, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s"]}
+{"room_id": 246, "title": "A misty room", "terrain": "NORMAL", "exits": ["s"]}
+{"room_id": 215, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s"]}
+{"room_id": 146, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 99, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 190, "title": "A misty room", "terrain": "NORMAL", "exits": ["s"]}
+{"room_id": 99, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 91, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 180, "title": "A misty room", "terrain": "NORMAL", "exits": ["s"]}
+{"room_id": 91, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 84, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 62, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 64, "title": "A misty room", "terrain": "NORMAL", "exits": ["s", "w"]}
+{"room_id": 82, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e"]}
+{"room_id": 191, "title": "A misty room", "terrain": "NORMAL", "exits": ["s"]}
+{"room_id": 82, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e"]}
+{"room_id": 64, "title": "A misty room", "terrain": "NORMAL", "exits": ["s", "w"]}
+{"room_id": 62, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 46, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 20, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 63, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 73, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 63, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 72, "title": "A misty room", "terrain": "NORMAL", "exits": ["s", "w"]}
+{"room_id": 76, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 110, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 76, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 83, "title": "A misty room", "terrain": "NORMAL", "exits": ["s", "e", "w"]}
+{"room_id": 125, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 237, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 245, "title": "A misty room", "terrain": "NORMAL", "exits": ["s", "e"]}
+{"room_id": 254, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "w"]}
+{"room_id": 314, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 254, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "w"]}
+{"room_id": 245, "title": "A misty room", "terrain": "NORMAL", "exits": ["s", "e"]}
+{"room_id": 237, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 125, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 165, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 204, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
+{"room_id": 216, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e", "w"]}
+{"room_id": 218, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "e", "w"]}
+{"room_id": 242, "title": "A Dark Cave", "terrain": "TRAP", "exits": ["n", "s", "e", "w"]}
+{"room_id": 275, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 456, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 499, "title": "Glasowyn's Grave", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 456, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 275, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 242, "title": "A Dark Cave", "terrain": "TRAP", "exits": ["n", "s", "e", "w"]}
+{"room_id": 287, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "w"]}
+{"room_id": 339, "title": "A Dark Cave", "terrain": "TRAP", "exits": ["e", "w"]}
+{"room_id": 445, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e", "w"]}
+{"room_id": 450, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["e"]}
+{"room_id": 445, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e", "w"]}
+{"room_id": 447, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s"]}
+{"room_id": 445, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e", "w"]}
+{"room_id": 339, "title": "A Dark Cave", "terrain": "TRAP", "exits": ["e", "w"]}
+{"room_id": 287, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "w"]}
+{"room_id": 242, "title": "A Dark Cave", "terrain": "TRAP", "exits": ["n", "s", "e", "w"]}
+{"room_id": 218, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "e", "w"]}
+{"room_id": 263, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n"]}
+{"room_id": 218, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "e", "w"]}
+{"room_id": 216, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e", "w"]}
+{"room_id": 234, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "s", "w"]}
+{"room_id": 252, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e"]}
+{"room_id": 284, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "s", "w"]}
+{"room_id": 303, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e", "w"]}
+{"room_id": 405, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "e"]}
+{"room_id": 406, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "w"]}
+{"room_id": 415, "title": "A Dark Cave", "terrain": "TRAP", "exits": ["e", "w"]}
+{"room_id": 418, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "s", "e"]}
+{"room_id": 425, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "w"]}
+{"room_id": 469, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["e"]}
+{"room_id": 425, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["s", "w"]}
+{"room_id": 418, "title": "A Dark Cave", "terrain": "CAVE", "exits": ["n", "s", "e"]}
+{"room_id": 415, "title": "A Dark Cave", "terrain": "TRAP", "exits": ["e", "w"]}
