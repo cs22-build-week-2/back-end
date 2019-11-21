@@ -39,15 +39,20 @@ def create_map(headers, firstRoom, lengthOfRoom, traversed_map={}):
             for direction in exits:
                 dfs_visited[v_room_id][direction] = "?"
 
+        # Creates a previous direction added onto dfs, so this will be the last one traversed
+        if "previous_direction" not in dfs_visited[v_room_id]:
+                dfs_visited[v_room_id]["previous_direction"] = previous_direction
+
         # If all rooms are found, continue
         skip = False
 
         # Don't want to call this when initialized
         if previous_direction != "initialized": 
-            # Make previous_direction the first item in array (so it gets popped last)
-            index_of_previous_direction = exits.index(previous_direction)
-            # Switch previous_direction to first element
-            exits[0], exits[index_of_previous_direction] = exits[index_of_previous_direction], exits[0]
+            if dfs_visited[v_room_id]["previous_direction"] != "initialized":
+                # Make previous_direction the first item in array (so it gets popped last)
+                index_of_previous_direction = exits.index(dfs_visited[v_room_id]["previous_direction"])
+                # Switch previous_direction to first element
+                exits[0], exits[index_of_previous_direction] = exits[index_of_previous_direction], exits[0]
 
         # Finds a direction with "?"
         try_direction = exits.pop()
@@ -65,7 +70,7 @@ def create_map(headers, firstRoom, lengthOfRoom, traversed_map={}):
             # if remaining_time > 0:
             #     time.sleep(remaining_time + 1)
             time.sleep(cooldown)
-            continue
+            break
         else:
             # Sets previous direction
             if try_direction == "n":
