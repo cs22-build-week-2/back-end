@@ -7,21 +7,22 @@ moveUrl = 'https://lambda-treasure-hunt.herokuapp.com/api/adv/move/'
 # DFT
 def create_map(headers, firstRoom, lengthOfRoom):
     # Starts timer
-    start_time = time.time()
+    # start_time = time.time()
 
     cooldown = firstRoom['cooldown']
-    mapData = { 'room_id': firstRoom['room_id'], 'title': firstRoom['title'], 'items': firstRoom['items'], 'terrain': firstRoom['terrain'], 'exits': firstRoom['exits'], 'color': 'grey'}
-    print(f'Current room: {mapData}')
+    mapData = { 'room_id': firstRoom['room_id'], 'title': firstRoom['title'], 'terrain': firstRoom['terrain'], 'exits': firstRoom['exits']}
     # {room_id, title, items, terrain, exits}
 
     # Opens map.txt
-    f = open('map.txt', 'a')
+    f = open('map.txt', 'a+')
+    fp = open('map_ids.txt', 'a+')
 
     s = []
     s.append(mapData)
     dfs_visited = {}
     previous_direction = "initialized"
-    while len(s) > 0:
+    # while len(s) > 0:
+    for i in range(5):
         if lengthOfRoom == len(dfs_visited.keys()):
             break
 
@@ -30,10 +31,11 @@ def create_map(headers, firstRoom, lengthOfRoom):
         v_room_id = v["room_id"]
         exits = v["exits"]
         # Adds room to txt file
-        f.write(json.dumps(v) + "\n")
+        f.write(json.dumps({'room_id': v["room_id"], 'title': v['title'], 'terrain': v['terrain'], 'exits': v['exits']}) + "\n")
+        print(f'Current room: {v}')
 
         # Creates directions for rooms filled with "?"
-        if v not in dfs_visited:
+        if v_room_id not in dfs_visited:
             dfs_visited[v_room_id] = {}
             for direction in exits:
                 dfs_visited[v_room_id][direction] = "?"
@@ -57,12 +59,13 @@ def create_map(headers, firstRoom, lengthOfRoom):
                 skip = True
 
         if skip:
-            end_time = time.time()
-            time_passed = end_time - start_time # sample number: 2.00056365215209996
-            remaining_time = cooldown - time_passed
-            # Pauses program for time
-            if remaining_time > 0:
-                time.sleep(remaining_time)
+            # end_time = time.time()
+            # time_passed = end_time - start_time # sample number: 2.00056365215209996
+            # remaining_time = cooldown - time_passed
+            # # Pauses program for time
+            # if remaining_time > 0:
+            #     time.sleep(remaining_time + 1)
+            time.sleep(cooldown)
             continue
         else:
             # Sets previous direction
@@ -76,12 +79,15 @@ def create_map(headers, firstRoom, lengthOfRoom):
                 previous_direction = "w"
 
             # End time
-            end_time = time.time()
-            time_passed = end_time - start_time # sample number: 2.00056365215209996
-            remaining_time = cooldown - time_passed
-            # Pauses program for time
-            if remaining_time > 0:
-                time.sleep(remaining_time)
+            # end_time = time.time()
+            # time_passed = end_time - start_time # sample number: 2.00056365215209996
+            # remaining_time = cooldown - time_passed
+            # print('t', remaining_time)
+            # # Pauses program for time
+            # if remaining_time > 0:
+            #     time.sleep(remaining_time + 1)
+            print(cooldown)
+            time.sleep(cooldown)
 
             # Moves to try_direction
             post_data = { 'direction': try_direction }
@@ -89,8 +95,12 @@ def create_map(headers, firstRoom, lengthOfRoom):
             next_room_data = next_room.json()
             s.append(next_room_data)
 
+            print(next_room_data)
             # Add room to previous room
             dfs_visited[v_room_id][try_direction] = next_room_data["room_id"]
+            cooldown = next_room_data["cooldown"]
+            fp.write(json.dumps(dfs_visited) + '\n')
 
     f.close()
+    fp.close()
     return dfs_visited
