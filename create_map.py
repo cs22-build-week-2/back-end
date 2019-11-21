@@ -5,7 +5,7 @@ import json
 moveUrl = 'https://lambda-treasure-hunt.herokuapp.com/api/adv/move/'
 
 # DFT
-def create_map(headers, firstRoom, lengthOfRoom):
+def create_map(headers, firstRoom, lengthOfRoom, traversed_map={}):
     # Starts timer
     # start_time = time.time()
 
@@ -19,7 +19,7 @@ def create_map(headers, firstRoom, lengthOfRoom):
 
     s = []
     s.append(mapData)
-    dfs_visited = {}
+    dfs_visited = traversed_map
     previous_direction = "initialized"
     # while len(s) > 0:
     for i in range(5):
@@ -28,7 +28,7 @@ def create_map(headers, firstRoom, lengthOfRoom):
 
         # Get room from stack
         v = s.pop()
-        v_room_id = v["room_id"]
+        v_room_id = f'{v["room_id"]}'
         exits = v["exits"]
         # Adds room to txt file
         f.write(json.dumps({'room_id': v["room_id"], 'title': v['title'], 'terrain': v['terrain'], 'exits': v['exits']}) + "\n")
@@ -86,7 +86,6 @@ def create_map(headers, firstRoom, lengthOfRoom):
             # # Pauses program for time
             # if remaining_time > 0:
             #     time.sleep(remaining_time + 1)
-            print(cooldown)
             time.sleep(cooldown)
 
             # Moves to try_direction
@@ -95,12 +94,12 @@ def create_map(headers, firstRoom, lengthOfRoom):
             next_room_data = next_room.json()
             s.append(next_room_data)
 
-            print(next_room_data)
             # Add room to previous room
             dfs_visited[v_room_id][try_direction] = next_room_data["room_id"]
             cooldown = next_room_data["cooldown"]
             fp.write(json.dumps(dfs_visited) + '\n')
 
+    print('done')
     f.close()
     fp.close()
     return dfs_visited

@@ -41,10 +41,11 @@ def map():
     initialize = requests.get(initializeURL, headers = headers)
     initialize_data = initialize.json()
 
-    # Returns a dict with rooms with ids
+    # Returns a dict with rooms with ids # traversing_map
     rooms_with_ids = create_map(headers, initialize_data, 500)
+    print(rooms_with_ids)
 
-    return jsonify(rooms_with_ids), 200
+    return rooms_with_ids, 200
 
 @app.route('/find_path', methods=['POST'])
 def path():
@@ -64,13 +65,19 @@ def path():
 if __name__ == '__main__':
     # Loads initial rooms from txt file
     unique_rooms = {}
+    # traversing_map = {}
+    # Loads current dfs_visited from txt file
+    # with open('map_ids.txt','r') as t:
+    #     traversing_map = json.loads(t.readline())
 
     # Loads txt file into dict
     with open('map.txt','r') as f:
         for cnt, line in enumerate(f):
             room = json.loads(line)
-            print(room)
             unique_rooms[room["room_id"]] = room
+
+    # print(traversing_map)
+    print(unique_rooms)
 
     # Keep last
     app.run(host='0.0.0.0', port=5000)

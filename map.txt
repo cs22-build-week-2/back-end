@@ -2,5 +2,17 @@
 {"room_id": 26, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
 {"room_id": 23, "title": "A misty room", "terrain": "NORMAL", "exits": ["s", "e"]}
 {"room_id": 4, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e", "w"]}
-{"room_id": 0, "title": "A brightly lit room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
 {"room_id": 1, "title": "Shop", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 0, "title": "A brightly lit room", "terrain": "NORMAL", "exits": ["n", "s", "e", "w"]}
+{"room_id": 10, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 47, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e"]}
+{"room_id": 43, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 10, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 19, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 77, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
+{"room_id": 71, "title": "A misty room", "terrain": "NORMAL", "exits": ["s"]}
+{"room_id": 47, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "e"]}
+{"room_id": 43, "title": "A misty room", "terrain": "NORMAL", "exits": ["e", "w"]}
+{"room_id": 10, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 19, "title": "A misty room", "terrain": "NORMAL", "exits": ["n", "s", "w"]}
+{"room_id": 77, "title": "A misty room", "terrain": "NORMAL", "exits": ["e"]}
