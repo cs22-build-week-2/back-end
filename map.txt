@@ -1,1 +1,3 @@
-
+{"room_id": 1, "title": "A", "items":[], "terrain": "A", "exits": []}
+{"room_id": 2, "title": "A", "items":[], "terrain": "A", "exits": []}
+{"room_id": 3, "title": "A", "items":[], "terrain": "A", "exits": []}

@@ -72,7 +72,7 @@ def create_map(headers, firstRoom, lengthOfRoom):
                 previous_direction = "n"
             elif try_direction == "w":
                 previous_direction = "e"
-            elif try_direction == "e"
+            elif try_direction == "e":
                 previous_direction = "w"
 
             # End time
