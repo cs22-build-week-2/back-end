@@ -33,9 +33,9 @@ def map():
     initialize = requests.get(initializeURL, headers = headers)
     initialize_data = initialize.json()
 
-    create_map(headers, initialize_data, 500)
+    rooms_with_ids = create_map(headers, initialize_data, 500)
 
-    return jsonify(initialize_data), 200
+    return jsonify(rooms_with_ids), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

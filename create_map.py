@@ -1,18 +1,17 @@
-from threading import Timer
+import time
 import requests
 import json
 
 moveUrl = 'https://lambda-treasure-hunt.herokuapp.com/api/adv/move/'
 
+# DFT
 def create_map(headers, firstRoom, lengthOfRoom):
-    # sample usage
-    # t = Timer(30.0, "hello")
-    # t.start() # after 30 seconds, "hello" will be printed
-    # t = Timer(cooldown, )
+    # Starts timer
+    start_time = time.time()
 
     cooldown = firstRoom['cooldown']
     mapData = { 'room_id': firstRoom['room_id'], 'title': firstRoom['title'], 'items': firstRoom['items'], 'terrain': firstRoom['terrain'], 'exits': firstRoom['exits'], 'color': 'grey'}
-    print(mapData)
+    print(f'Current room: {mapData}')
     # {room_id, title, items, terrain, exits}
 
     # Opens map.txt
@@ -21,6 +20,7 @@ def create_map(headers, firstRoom, lengthOfRoom):
     s = []
     s.append(mapData)
     dfs_visited = {}
+    previous_direction = "initialized"
     while len(s) > 0:
         if lengthOfRoom == len(dfs_visited.keys()):
             break
@@ -38,21 +38,59 @@ def create_map(headers, firstRoom, lengthOfRoom):
             for direction in exits:
                 dfs_visited[v_room_id][direction] = "?"
 
-        # Finds a direction with "?"
+        # If all rooms are found, continue
         skip = False
+
+        # Don't want to call this when initialized
+        if previous_direction != "initialized": 
+            # Make previous_direction the first item in array (so it gets popped last)
+            index_of_previous_direction = exits.index(previous_direction)
+            # Switch previous_direction to first element
+            exits[0], exits[index_of_previous_direction] = exits[index_of_previous_direction], exits[0]
+
+        # Finds a direction with "?"
         try_direction = exits.pop()
         while dfs_visited[v_room_id][try_direction] != "?":
             if len(exits) > 0:
                 try_direction = exits.pop()
             else:
                 skip = True
+
         if skip:
+            end_time = time.time()
+            time_passed = end_time - start_time # sample number: 2.00056365215209996
+            remaining_time = cooldown - time_passed
+            # Pauses program for time
+            if remaining_time > 0:
+                time.sleep(remaining_time)
             continue
+        else:
+            # Sets previous direction
+            if try_direction == "n":
+                previous_direction = "s"
+            elif try_direction == "s":
+                previous_direction = "n"
+            elif try_direction == "w":
+                previous_direction = "e"
+            elif try_direction == "e"
+                previous_direction = "w"
 
-        # Moves to try_direction
-        post_data = { 'direction': try_direction }
-        next_room = requests.post(moveUrl, json=post_data, headers=headers)
-        next_room_data = next_room.json()
+            # End time
+            end_time = time.time()
+            time_passed = end_time - start_time # sample number: 2.00056365215209996
+            remaining_time = cooldown - time_passed
+            # Pauses program for time
+            if remaining_time > 0:
+                time.sleep(remaining_time)
 
-        # Add room to previous room
-        dfs_visited[v_room_id][try_direction] = next_room_data["room_id"]
+            # Moves to try_direction
+            post_data = { 'direction': try_direction }
+            next_room = requests.post(moveUrl, json=post_data, headers=headers)
+            next_room_data = next_room.json()
+            s.append(next_room_data)
+
+            # Add room to previous room
+            dfs_visited[v_room_id][try_direction] = next_room_data["room_id"]
+
+    f.close()
+    return dfs_visited
