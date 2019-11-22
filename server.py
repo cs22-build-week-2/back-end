@@ -64,11 +64,12 @@ def proof():
     found_proof = find_proof(proof_data["proof"])
     print('new proof: ', found_proof)
 
-    # post_data = { "proof": found_proof }
-    # mine = requests.get(mineURL, json=post_data, headers=headers)
+    post_data = { "proof": found_proof }
+    mine = requests.post(mineURL, json=post_data, headers=headers)
+    mine_data = mine.json()
 
-    # return jsonify(mine), 200
-    return jsonify(found_proof), 200
+    return mine_data, 200
+    # return jsonify(found_proof), 200
 
 @app.route('/find_path', methods=['POST'])
 def path():
@@ -104,7 +105,7 @@ def traverse_path():
     # Room to move to
     final_room = values['move_to']
 
-    path = find_short_paths(initialize_data, final_room, traversing_map)
+    path = find_short_paths(initialize_data, final_room)
     for room in path:
         print(cooldown)
         post_data = {"direction": room[0], "next_room_id": room[1]}
@@ -119,26 +120,26 @@ def traverse_path():
 
 if __name__ == '__main__':
     # Loads initial rooms from txt file
-    unique_rooms = {}
-    traversing_map = {}
-    # Loads current dfs_visited from txt file
-    with open('map_ids.txt','r') as t:
-        traversing_map = json.loads(t.readline())
+    # unique_rooms = {}
+    # traversing_map = {}
+    # # Loads current dfs_visited from txt file
+    # with open('map_ids.txt','r') as t:
+    #     traversing_map = json.loads(t.readline())
 
-    # Clean dfs_visited data
-    for room in traversing_map.keys():
-        if "previous_direction" in traversing_map[room]:
-            del traversing_map[room]["previous_direction"]
-        traversing_map[room]['room_id'] = room 
+    # # Clean dfs_visited data
+    # for room in traversing_map.keys():
+    #     if "previous_direction" in traversing_map[room]:
+    #         del traversing_map[room]["previous_direction"]
+    #     traversing_map[room]['room_id'] = room 
 
 
     # Loads txt file into dict
-    with open('map.txt','r') as f:
-        for cnt, line in enumerate(f):
-            room = json.loads(line)
-            unique_rooms[room["room_id"]] = room
+    # with open('map.txt','r') as f:
+    #     for cnt, line in enumerate(f):
+    #         room = json.loads(line)
+    #         unique_rooms[room["room_id"]] = room
 
-    print(traversing_map)
+    # print(traversing_map)
     # print(unique_rooms)
 
     # Keep last

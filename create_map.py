@@ -5,6 +5,7 @@ import json
 moveUrl = 'https://lambda-treasure-hunt.herokuapp.com/api/adv/move/'
 
 # DFT
+# Currently stops when it reaches lengthOfRoom, ideally should stop after all directions don't have "?"
 def create_map(headers, firstRoom, lengthOfRoom, traversed_map={}):
     # Starts timer
     # start_time = time.time()

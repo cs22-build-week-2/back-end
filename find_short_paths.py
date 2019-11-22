@@ -1,10 +1,25 @@
+import json
+
 # Opens map data
 # Finds shortest path to each room
 
 # {'room_id': {'n': 'room_id', 's': 'room_id', 'e': 'room_id', 'w': 'room_id'}}
 # Do a BFS
-def find_short_paths(firstRoom, goalRoom, allRooms):
-    unique_rooms = allRooms
+def find_short_paths(firstRoom, goalRoom):
+    traversing_map = {}
+    # Loads current dfs_visited from txt file
+    with open('map_ids.txt','r') as t:
+        traversing_map = json.loads(t.readline())
+
+    # Clean dfs_visited data
+    for room in traversing_map.keys():
+        if "previous_direction" in traversing_map[room]:
+            del traversing_map[room]["previous_direction"]
+        traversing_map[room]['room_id'] = room 
+
+    print(traversing_map)
+
+    unique_rooms = traversing_map
     parent = ""
     first_room_id = f'{firstRoom["room_id"]}'
     q = []
@@ -65,7 +80,7 @@ def find_short_paths(firstRoom, goalRoom, allRooms):
     num_path.reverse()
 
     direction_path = []
-    copy_allRooms = allRooms
+    copy_allRooms = traversing_map
     for i in range(len(num_path)):
         room = num_path[i]
         del copy_allRooms[room]["room_id"]
