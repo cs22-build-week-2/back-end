@@ -1,6 +1,7 @@
 from flask import Flask, escape, request, jsonify
 import requests
 import json
+import time
 
 from create_map import create_map
 from find_short_paths import find_short_paths
@@ -59,10 +60,8 @@ def proof():
     proof_data = proof.json()
 
     found_proof = find_proof(proof_data["proof"])
-    
+
     return jsonify(found_proof), 200
-
-
 
 @app.route('/find_path', methods=['POST'])
 def path():
@@ -75,9 +74,41 @@ def path():
     initialize = requests.get(initializeURL, headers = headers)
     initialize_data = initialize.json()
 
-    find_short_paths(initialize_data, traversing_map)
+    # Room to move to
+    final_room = values['move_to']
+
+    path = find_short_paths(initialize_data, final_room, traversing_map)
 
     return jsonify(path), 200
+
+@app.route('/traverse_path', methods=['POST'])
+def traverse_path():
+    # Accept an API key
+    values = request.get_json()
+    initializeURL = 'https://lambda-treasure-hunt.herokuapp.com/api/adv/init/'
+    moveURL = 'https://lambda-treasure-hunt.herokuapp.com/api/adv/move/'
+    headers = {'Authorization': 'Token ' + values['api_key']}
+
+    # Initialize room
+    initialize = requests.get(initializeURL, headers = headers)
+    initialize_data = initialize.json()
+    cooldown = initialize_data["cooldown"]
+
+    # Room to move to
+    final_room = values['move_to']
+
+    path = find_short_paths(initialize_data, final_room, traversing_map)
+    for room in path:
+        print(cooldown)
+        post_data = {"direction": room[0], "next_room_id": room[1]}
+        time.sleep(cooldown)
+        next_room = requests.post(moveURL, json=post_data, headers=headers)
+        next_room_data = next_room.json()
+        print(next_room_data)
+        cooldown = next_room_data["cooldown"]
+
+    print('---done---')
+    return jsonify("done"), 200
 
 if __name__ == '__main__':
     # Loads initial rooms from txt file
@@ -87,14 +118,21 @@ if __name__ == '__main__':
     with open('map_ids.txt','r') as t:
         traversing_map = json.loads(t.readline())
 
+    # Clean dfs_visited data
+    for room in traversing_map.keys():
+        if "previous_direction" in traversing_map[room]:
+            del traversing_map[room]["previous_direction"]
+        traversing_map[room]['room_id'] = room 
+
+
     # Loads txt file into dict
     with open('map.txt','r') as f:
         for cnt, line in enumerate(f):
             room = json.loads(line)
             unique_rooms[room["room_id"]] = room
 
-    # print(traversing_map)
-    print(unique_rooms)
+    print(traversing_map)
+    # print(unique_rooms)
 
     # Keep last
     app.run(host='0.0.0.0', port=5000)
