@@ -54,13 +54,20 @@ def proof():
     # Accept an API key
     values = request.get_json()
     proofURL = 'https://lambda-treasure-hunt.herokuapp.com/api/bc/last_proof/'
+    mineURL = 'https://lambda-treasure-hunt.herokuapp.com/api/bc/mine/'
     headers = {'Authorization': 'Token ' + values['api_key']}
 
     proof = requests.get(proofURL, headers=headers)
     proof_data = proof.json()
+    print('last proof: ', proof_data)
 
     found_proof = find_proof(proof_data["proof"])
+    print('new proof: ', found_proof)
 
+    # post_data = { "proof": found_proof }
+    # mine = requests.get(mineURL, json=post_data, headers=headers)
+
+    # return jsonify(mine), 200
     return jsonify(found_proof), 200
 
 @app.route('/find_path', methods=['POST'])
